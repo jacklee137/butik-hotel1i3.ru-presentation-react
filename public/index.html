@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link
+    href="bitrix/cache/css/s1/interguest/template_09f2793f7f8d6a24bed7c92f73399714/template_09f2793f7f8d6a24bed7c92f73399714_v1.css?168683086292460"
+    type="text/css" data-template-style="true" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  </head>
+  <body class="body">
+    <!-- <p class="header__addre">fjdfjdfj</p> -->
+    <div id="root"></div>
+
+
+
+            
+        <script type="text/javascript" src="bitrix/js/pull/protobuf/model.min.js?166988206714190"></script>
+        <script type="text/javascript" src="bitrix/js/main/core/core_promise.min.js?16698820672490"></script>
+        <script async type="text/javascript" src="bitrix/cache/js/s1/interguest/template_07687bd0d19f949b8dfcd5d83af3064e/template_07687bd0d19f949b8dfcd5d83af3064e_v1.js?1686309668214403"></script>
+
+
+        <script>
+          // alert(214314)
+          document.querySelector(".header__address").innerHTML = "Hello JavaScript!"
+          // document.getElementsByClassName
+          console.log(document.querySelector(".header__addre").innerHTML )
+          // document.addEventListener('DOMContentLoaded', function() {
+            
+          // }, false);
+
+
+
+        </script>
+                      
+        <!-- виджет оформления бронирования -->
+        <script src="js/bnovo.js"></script>
+        <script type="text/javascript">
+          Bnovo_Widget.init(function() {
+              Bnovo_Widget.open('_bn_widget_', {
+                type: "horizontal",
+                uid: "2251096e-e252-473b-ae1c-8fdf3d011c53",
+                lang: "ru",
+                width: "100%",
+                background: "#ffffff",
+                bg_alpha: "30",
+                padding: "40",
+                border_radius: "0",
+                font_type: "arial",
+                font_size: "16",
+                without_title: "on",
+                title_color: "#000000",
+                title_size: "18",
+                inp_color: "#222222",
+                inp_bordhover: "#3796e5",
+                inp_bordcolor: "#cccccc",
+                inp_alpha: "100",
+                btn_background: "#cc9c63",
+                btn_background_over: "#293a50",
+                btn_textcolor: "#FFFFFF",
+                btn_textover: "#FFFFFF",
+                btn_bordcolor: "#cc9c63",
+                btn_bordhover: "#293a50",
+                arrival: "Прибытие",
+                adults_default: "1",
+                guests: "Кол-во гостей",
+                btn_text: "Найти номер",
+                text_concierge: "Получи скидку через Bnovo Concierge"
+              });
+          });
+        </script>
+
+
+        <script>
+
+          function downloadJSAtOnload() {
+            
+            let element = document.createElement("script");
+            element.src = "https://api-maps.yandex.ru/2.1/?apikey=8103dd979-5480-4788-9c89-797fba86e6e9&lang=ru_RU";
+            document.head.appendChild(element);
+          }
+
+            setTimeout(() => {
+                downloadJSAtOnload();
+            }, 0);
+
+          let center = [55.732976, 37.387977];
+          //let center = [55.732976, 37.387977];
+            setTimeout(() => {
+                        ymaps.ready(function () {
+                let map = new ymaps.Map('map', {
+                    center: center,
+                    zoom: 16,
+                    controls: []
+                });
+
+                let placemark = new ymaps.Placemark(center, {}, {
+                    iconLayout: 'default#image',
+                    iconImageHref: '/local/templates/interguest/assets/images/icons/map-pin.svg',
+                    iconImageSize: [52, 69],
+                    iconImageOffset: [-25, -65]
+                });
+
+            map.geoObjects.add(placemark);
+
+            /*объявляю переменную в который будут храниться и изменяться координаты ломанной до метро*/
+                let metro = []
+                /*при опредленном урле записывается координаты ломанный в переменной*/
+                                  
+                            
+                              
+                                                                                              
+                let myGeoObject = new ymaps.GeoObject({
+                // Описываем геометрию геообъекта.
+                geometry: {
+                // Тип геометрии - "Ломаная линия".
+                type: "LineString",
+                // Указываем координаты вершин ломаной.
+                coordinates: metro
+                },
+                // Описываем свойства геообъекта.
+                properties:{
+                //hintContent: "Я геообъект",
+                }
+                }, {
+                // Задаем опции геообъекта.
+                // Включаем возможность перетаскивания ломаной.
+                draggable: false,
+                // Цвет линии.
+                strokeColor: "#C40000",
+                // Ширина линии.
+                strokeWidth: 5
+                });
+                //Добавляем ломанную линию на карту
+                map.geoObjects.add(myGeoObject);
+
+
+
+            }); 
+
+        }, 5000);
+        </script>
+
+
+
+  </body>
+</html>
